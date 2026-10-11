@@ -27,8 +27,8 @@ $recipientEmail = !empty($config['recipient_email']) ? trim($config['recipient_e
 $fromName = !empty($config['from_name']) ? trim($config['from_name']) : 'رسوخ العمرانية - دروازة';
 $timezone = !empty($config['timezone']) ? $config['timezone'] : 'Asia/Riyadh';
 $projectTitle = !empty($config['project_title']) ? $config['project_title'] : 'بيانات العميل دروازة';
-$projectLoc = !empty($config['project_loc']) ? $config['project_loc'] : 'مستشفي شرق جدة حي النسيم';
-$subjectText = !empty($config['email_subject']) ? $config['email_subject'] : 'بيانات العميل دروازة - مستشفي شرق جدة حي النسيم';
+$projectLoc = !empty($config['project_loc']) ? $config['project_loc'] : 'مستشفي الملك عبدالعزيز حي المحجر';
+$subjectText = !empty($config['email_subject']) ? $config['email_subject'] : 'بيانات العميل دروازة - مستشفي الملك عبدالعزيز حي المحجر';
 $mailerType = !empty($config['mailer_type']) ? strtolower(trim($config['mailer_type'])) : 'mail';
 
 // ضبط المنطقة الزمنية
@@ -247,8 +247,8 @@ $emailHtml = '
         <div class="header">
             <h1 class="brand-title">رسوخ العمرانية</h1>
             <div style="margin-top: 14px; margin-bottom: 8px; padding: 12px 18px; background: rgba(200, 164, 93, 0.22); border: 2px solid #c8a45d; border-radius: 10px; color: #fce7b0; font-size: 17px; font-weight: bold; line-height: 1.7; text-align: center;">
-                📍 بيانات العميل دروازة<br>
-                🏥 مستشفي شرق جدة حي النسيم
+                📍 ' . htmlspecialchars($projectTitle, ENT_QUOTES, 'UTF-8') . '<br>
+                🏥 ' . htmlspecialchars($projectLoc, ENT_QUOTES, 'UTF-8') . '
             </div>
             <div class="badge">طلب تسجيل اهتمام</div>
         </div>
@@ -257,7 +257,7 @@ $emailHtml = '
             <table class="data-table" role="presentation">
                 <tr class="data-row">
                     <td class="data-label">المشروع / النموذج</td>
-                    <td class="data-value highlight">بيانات العميل دروازة - مستشفي شرق جدة حي النسيم</td>
+                    <td class="data-value highlight">' . htmlspecialchars($projectTitle . ' - ' . $projectLoc, ENT_QUOTES, 'UTF-8') . '</td>
                 </tr>
                 <tr class="data-row">
                     <td class="data-label">اسم الشركة</td>
@@ -349,8 +349,10 @@ if ($mailerType === 'smtp' && !empty($config['smtp']['host'])) {
 
 // تسجيل الطلب كنسخة احتياطية آمنة
 $logEntry = sprintf(
-    "[%s] [دروازة - مستشفي شرق جدة] Name: %s | Phone: %s | City: %s | Payment: %s | Result: %s\n",
+    "[%s] [%s - %s] Name: %s | Phone: %s | City: %s | Payment: %s | Result: %s\n",
     $submissionFullTime,
+    $projectTitle,
+    $projectLoc,
     $fullName,
     $phoneNumber,
     $city,
