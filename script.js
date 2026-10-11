@@ -276,18 +276,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const payload = {
           access_key: CONFIG.web3formsKey,
-          subject: 'بيانات العميل دروازة مستشفي الملك عبدالعزيز حي المحجر - ' + fullName,
+          subject: 'بيانات العميل دروازه مستشفي الثغر حي الامير فواز - ' + fullName,
           from_name: 'رسوخ العمرانية - دروازة',
-          'المشروع': 'بيانات العميل دروازة - مستشفي الملك عبدالعزيز حي المحجر',
+          'المشروع': 'بيانات العميل دروازه - مستشفي الثغر حي الامير فواز',
           message: [
-            'بيانات العميل دروازة',
-            'مستشفي الملك عبدالعزيز حي المحجر',
+            'بيانات العميل دروازه',
+            'مستشفي الثغر حي الامير فواز',
             '━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
             '• اسم العميل: ' + fullName,
             '• رقم الجوال السعودي: ' + saudiPhoneInternational,
             '• المدينة: ' + cityName,
             '• طريقة الدفع: ' + paymentMethod,
-            '• الموقع / المشروع: مستشفي الملك عبدالعزيز حي المحجر',
+            '• الموقع / المشروع: مستشفي الثغر حي الامير فواز',
             '• اسم الشركة: ' + CONFIG.companyName,
             '• تاريخ ووقت الطلب: ' + formattedDate,
             '• نوع الطلب: تسجيل اهتمام (دروازة)',
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
           phone_number: saudiPhoneInternational,
           city: cityName,
           payment_method: paymentMethod,
-          project_source: 'بيانات العميل دروازة - مستشفي الملك عبدالعزيز حي المحجر',
+          project_source: 'بيانات العميل دروازه - مستشفي الثغر حي الامير فواز',
           request_type: 'تسجيل اهتمام (دروازة)',
           website_url_check: honeypotInput ? honeypotInput.value : ''
         };
